@@ -1,7 +1,5 @@
 Crear una aplicación web en Streamlit para predecir la calidad del vino utilizando modelos de Machine Learning entrenados con sklearn.
-
 La aplicación debe:
-
 - cargar modelos entrenados en formato .pkl usando joblib
 - permitir ingresar variables fisicoquímicas del vino
 - realizar predicciones de calidad del vino
