@@ -2,49 +2,23 @@ import streamlit as st
 import numpy as np
 import joblib
 
-# ==============================
-# CARGAR MODELO Y SCALER
-# ==============================
-
 modelo = joblib.load("modelos/modelo_random.pkl")
 scaler = joblib.load("modelos/scaler.pkl")
-
-# TITULO
 
 st.title("Predicción de Calidad del Vino")
 
 st.write("Nombre: TU NOMBRE")
 st.write("Código ISIL: TU CODIGO")
 
-st.write("Google Colab:")
-st.write("PEGA_AQUI_TU_LINK_COLAB")
+fixed_acidity = st.number_input("Fixed Acidity", 0.0, 20.0, 7.0)
 
-# INPUTS
+volatile_acidity = st.number_input("Volatile Acidity", 0.0, 2.0, 0.5)
 
-fixed_acidity = st.number_input(
-    "Fixed Acidity",
-    0.0, 20.0, 7.0
-)
+citric_acid = st.number_input("Citric Acid", 0.0, 2.0, 0.3)
 
-volatile_acidity = st.number_input(
-    "Volatile Acidity",
-    0.0, 2.0, 0.5
-)
+residual_sugar = st.number_input("Residual Sugar", 0.0, 20.0, 2.0)
 
-citric_acid = st.number_input(
-    "Citric Acid",
-    0.0, 2.0, 0.3
-)
-
-residual_sugar = st.number_input(
-    "Residual Sugar",
-    0.0, 20.0, 2.0
-)
-
-chlorides = st.number_input(
-    "Chlorides",
-    0.0, 1.0, 0.05
-)
+chlorides = st.number_input("Chlorides", 0.0, 1.0, 0.05)
 
 free_sulfur_dioxide = st.number_input(
     "Free Sulfur Dioxide",
@@ -56,37 +30,20 @@ total_sulfur_dioxide = st.number_input(
     0.0, 300.0, 50.0
 )
 
-density = st.number_input(
-    "Density",
-    0.9, 1.1, 0.99
-)
+density = st.number_input("Density", 0.9, 1.1, 0.99)
 
-pH = st.number_input(
-    "pH",
-    0.0, 14.0, 3.2
-)
+pH = st.number_input("pH", 0.0, 14.0, 3.2)
 
-sulphates = st.number_input(
-    "Sulphates",
-    0.0, 2.0, 0.6
-)
+sulphates = st.number_input("Sulphates", 0.0, 2.0, 0.6)
 
-alcohol = st.number_input(
-    "Alcohol",
-    0.0, 20.0, 10.0
-)
+alcohol = st.number_input("Alcohol", 0.0, 20.0, 10.0)
 
 wine_type = st.selectbox(
     "Wine Type",
     ["Red", "White"]
 )
 
-# CONVERTIR TIPO
-
-
 type_white = 1 if wine_type == "White" else 0
-
-# PREDICCION
 
 if st.button("Predecir"):
 
